@@ -1,0 +1,24 @@
+name: Documentation issue
+description: Report broken, unclear, or missing documentation.
+title: "[docs] "
+labels: ["documentation"]
+body:
+  - type: input
+    id: page
+    attributes:
+      label: Page or file
+      description: Documentation URL or repository path.
+      placeholder: "https://pccxai.github.io/pccx/... or path/to/file.md"
+    validations:
+      required: true
+  - type: textarea
+    id: problem
+    attributes:
+      label: What is wrong or unclear
+    validations:
+      required: true
+  - type: textarea
+    id: suggestion
+    attributes:
+      label: Suggested fix
+      description: Optional. A concrete suggestion is welcome but not required.

@@ -1,0 +1,8 @@
+blank_issues_enabled: false
+contact_links:
+  - name: Question or design discussion
+    url: https://github.com/pccxai/pccx/discussions
+    about: Use the pccx Discussions hub for questions, ideas, and Q&A. Issues are reserved for actionable bugs, doc errors, and concrete feature proposals.
+  - name: Security vulnerability
+    url: https://github.com/pccxai/.github/blob/main/SECURITY.md
+    about: Do not file public issues for security vulnerabilities. Follow the disclosure procedure in SECURITY.md.
