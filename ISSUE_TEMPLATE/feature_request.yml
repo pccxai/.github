@@ -1,0 +1,33 @@
+name: Feature request
+description: Propose new capability or scope expansion.
+title: "[feature] "
+labels: ["enhancement"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        For open-ended ideas, consider a Discussion first. Use this form when the proposal is concrete enough to scope into a single change.
+  - type: textarea
+    id: motivation
+    attributes:
+      label: Motivation
+      description: What problem does this solve, and for whom?
+    validations:
+      required: true
+  - type: textarea
+    id: proposal
+    attributes:
+      label: Proposed solution
+      description: How would it work? Diagrams, pseudocode, or interface sketches welcome.
+    validations:
+      required: true
+  - type: textarea
+    id: alternatives
+    attributes:
+      label: Alternatives considered
+      description: Optional. Other approaches you weighed and why this one is preferred.
+  - type: textarea
+    id: scope
+    attributes:
+      label: Out of scope
+      description: Optional. What this proposal explicitly does not cover.
