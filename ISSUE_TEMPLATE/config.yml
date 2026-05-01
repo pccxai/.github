@@ -3,6 +3,9 @@ contact_links:
   - name: Question or design discussion
     url: https://github.com/pccxai/pccx/discussions
     about: Use the pccx Discussions hub for questions, ideas, and Q&A. Issues are reserved for actionable bugs, doc errors, and concrete feature proposals.
+  - name: First-time contributor — pick a task
+    url: https://github.com/search?q=org%3Apccxai+is%3Aissue+is%3Aopen+label%3A%22good+first+issue%22&type=issues
+    about: Looking for somewhere to start? Browse open "good first issue" tickets across the pccxai organization.
   - name: Security vulnerability
     url: https://github.com/pccxai/.github/blob/main/SECURITY.md
     about: Do not file public issues for security vulnerabilities. Follow the disclosure procedure in SECURITY.md.
