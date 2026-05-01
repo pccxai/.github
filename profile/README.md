@@ -14,17 +14,20 @@ RTL, Sail reference, and KV260 bring-up artifacts. Hardware evidence lives here.
 
 ### [pccx-lab](https://github.com/pccxai/pccx-lab)
 
-CLI-first verification lab. Hosts the plugin system and the controlled MCP backend.
-AI workers can interact with pccx-lab through that MCP interface. GUI is a secondary surface.
+CLI-first verification lab. Provides the shared analyze and status boundary that
+editor and launcher integrations consume. Plugin system and MCP interface are planned.
+GUI is a secondary surface.
 
-### [pccx-systemverilog-ide](https://github.com/pccxai/pccx-systemverilog-ide)
+### [systemverilog-ide](https://github.com/pccxai/systemverilog-ide)
 
 SystemVerilog IDE spin-out from pccx-lab. Targets diagnostics, xsim log integration,
 and an AI-assisted SystemVerilog development workflow.
 
 ### [pccx-llm-launcher](https://github.com/pccxai/pccx-llm-launcher)
 
-User-facing local LLM launcher. Connects to KV260 and integrates pccx-lab diagnostics.
+User-facing local LLM launcher, targeting KV260-class edge devices. Currently a
+planning scaffold; real launch flow depends on FPGA bring-up evidence from
+pccx-FPGA-NPU-LLM-kv260.
 
 ## Roadmap and tracking
 
