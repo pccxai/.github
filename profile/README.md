@@ -29,7 +29,7 @@ User-facing local LLM launcher. Connects to KV260 and integrates pccx-lab diagno
 ## Roadmap and tracking
 
 Execution is tracked on the [PCCX Roadmap project](https://github.com/orgs/pccxai/projects/1).
-The short release-track summary lives at [pccx/docs/roadmap](https://pccxai.github.io/pccx/roadmap.html).
+The short release-track summary lives at [pccx/docs/roadmap](https://pccxai.github.io/pccx/en/docs/roadmap.html).
 
 ## Contributing
 
