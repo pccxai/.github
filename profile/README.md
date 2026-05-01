@@ -6,30 +6,35 @@ Open hardware/software research for NPU architecture, FPGA acceleration, and AI-
 
 ### [pccx](https://github.com/pccxai/pccx)
 
-SystemVerilog-based NPU core architecture and the canonical documentation site.
-Targets Xilinx Kria KV260 (Zynq UltraScale+ ZU5EV) for autoregressive LLM decoding at the edge.
+Specification, documentation, and release coordination across the ecosystem.
 
 ### [pccx-FPGA-NPU-LLM-kv260](https://github.com/pccxai/pccx-FPGA-NPU-LLM-kv260)
 
-KV260 board integration: NPU plus LLM/KV-cache implementation, RTL, and bring-up notes.
+RTL, Sail reference, and KV260 bring-up artifacts. Hardware evidence lives here.
 
 ### [pccx-lab](https://github.com/pccxai/pccx-lab)
 
-Rust and Tauri development and verification toolchain.
-Design, performance analysis, bottleneck detection, visualization, automated reports, and pipeline orchestration in one workspace.
+CLI-first verification lab. Hosts the plugin system and the controlled MCP backend.
+AI workers can interact with pccx-lab through that MCP interface. GUI is a secondary surface.
 
-## Current Focus
+### [pccx-systemverilog-ide](https://github.com/pccxai/pccx-systemverilog-ide)
 
-- NPU RTL architecture and verification
-- FPGA deployment on Xilinx KV260
-- AI-assisted design, analysis, and documentation workflows
-- Hardware/software co-design for edge inference
+SystemVerilog IDE spin-out from pccx-lab. Targets diagnostics, xsim log integration,
+and an AI-assisted SystemVerilog development workflow.
+
+### [pccx-llm-launcher](https://github.com/pccxai/pccx-llm-launcher)
+
+User-facing local LLM launcher. Connects to KV260 and integrates pccx-lab diagnostics.
+
+## Roadmap and tracking
+
+Execution is tracked on the [PCCX Roadmap project](https://github.com/orgs/pccxai/projects/1).
+The short release-track summary lives at [pccx/docs/roadmap](https://pccxai.github.io/pccx/roadmap.html).
 
 ## Contributing
 
 Focused issues, documentation improvements, reproducible benchmarks, and small experiments are welcome.
 See each repository's `CONTRIBUTING.md` for project-specific guidance.
-
 Open a discussion before starting non-trivial work.
 
 ## Contact
