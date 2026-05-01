@@ -20,6 +20,15 @@
 
 <!-- Closes #..., relates to #..., or "(none)". -->
 
+## Engineering checklist
+
+- [ ] Scope is small and bounded
+- [ ] Public interface or boundary is clear
+- [ ] Tests/smoke checks were run
+- [ ] No overclaim about production readiness, timing closure, KV260 inference, or stable ABI
+- [ ] No unrelated repo settings, release, tag, or visibility changes
+- [ ] Critical architecture assumptions are stated
+
 ## Notes for reviewer
 
 <!-- Optional. Anything subtle that the diff does not show. -->
