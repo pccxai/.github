@@ -1,6 +1,6 @@
 # PCCX AI
 
-Open hardware/software research for NPU architecture, FPGA acceleration, and AI-assisted verification.
+Open hardware/software research for NPU architecture, FPGA acceleration, and verification tooling.
 
 ## Projects
 
@@ -15,13 +15,13 @@ RTL, Sail reference, and KV260 bring-up artifacts. Hardware evidence lives here.
 ### [pccx-lab](https://github.com/pccxai/pccx-lab)
 
 CLI-first verification lab. Provides the shared analyze and status boundary that
-editor and launcher integrations consume. Plugin system and MCP interface are planned.
+editor and launcher integrations consume. Plugin system and external tool interface are planned.
 GUI is a secondary surface.
 
 ### [systemverilog-ide](https://github.com/pccxai/systemverilog-ide)
 
 SystemVerilog IDE spin-out from pccx-lab. Targets diagnostics, xsim log integration,
-and an AI-assisted SystemVerilog development workflow.
+and reviewed SystemVerilog development workflows.
 
 ### [pccx-llm-launcher](https://github.com/pccxai/pccx-llm-launcher)
 
