@@ -28,41 +28,13 @@ These guidelines apply to all PCCX AI repositories unless a repository ships its
 - Add tests or reproducible examples where the project supports them.
 - Keep documentation in sync with behaviour changes.
 
-## AI-assisted engineering
+## Engineering discipline
 
-PCCX AI uses AI workers to accelerate development. The following principles
-keep that work safe and sustainable.
+Architecture, release decisions, and hardware-sensitive verification are maintainer-owned.
 
-**Human strategy, AI execution.** AI workers implement local changes within
-agreed boundaries. The human maintainer owns system architecture, release
-decisions, and critical verification. AI workers do not expand architecture
-speculatively.
+Non-trivial changes should define the public interface or boundary before implementation. Use focused pull requests, tests, and evidence-backed release language.
 
-**Interface first.** Agree on the public interface or boundary before
-implementation begins. Use a planning step for anything non-trivial — state
-assumptions explicitly rather than assuming a written spec is complete.
-
-**Tests and tight feedback loops.** Run the cheapest available check before
-declaring work done: `cargo check`, `pytest -q`, `git diff --check`. Large
-patches without test coverage are not accepted.
-
-**Deep modules over shallow ones.** Public interfaces should be small and
-stable-looking. Internal complexity belongs behind clear module boundaries.
-
-**Gray-box delegation.** Humans review public interfaces, IPC contracts, and
-hardware-sensitive boundaries. AI workers can implement internals behind those
-boundaries. Critical modules require stricter human sign-off.
-
-**Evidence-first releases.** No production-ready claim without evidence. No
-stable API/ABI claim without an explicit decision. No KV260 inference or
-timing-closure claim without verified hardware evidence.
-
-**PCCX-specific boundaries.** `pccx-lab` is CLI/core first; GUI second. All
-IDE, editor, MCP, and AI worker workflows sit on the controlled CLI/core
-boundary. The FPGA bring-up path is human-owned and human-verified.
-
-For the full reference, see
-[AI-assisted engineering discipline](https://github.com/pccxai/pccxai/blob/main/docs/AI_ASSISTED_ENGINEERING.md).
+Do not make production-ready, stable API/ABI, KV260 inference, timing-closure, or throughput claims without linked evidence.
 
 ## Reporting security issues
 
