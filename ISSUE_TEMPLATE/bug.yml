@@ -1,0 +1,56 @@
+name: Bug
+description: Report a reproducible defect.
+title: "[bug] "
+labels: ["type:bug", "status:triage"]
+body:
+  - type: input
+    id: repository
+    attributes:
+      label: Repository
+      description: Repository and path, if known.
+      placeholder: "pccxai/repo-name, path/to/file"
+    validations:
+      required: true
+  - type: input
+    id: version
+    attributes:
+      label: Version or commit
+      description: Tag, branch, or commit where the defect was observed.
+      placeholder: "main at abc1234"
+    validations:
+      required: true
+  - type: textarea
+    id: observed
+    attributes:
+      label: Observed result
+      description: What happened?
+    validations:
+      required: true
+  - type: textarea
+    id: expected
+    attributes:
+      label: Expected result
+      description: What should have happened?
+    validations:
+      required: true
+  - type: textarea
+    id: reproduce
+    attributes:
+      label: Reproduction
+      description: Minimal commands, inputs, or steps.
+      placeholder: |
+        1. ...
+        2. ...
+        3. ...
+    validations:
+      required: true
+  - type: textarea
+    id: environment
+    attributes:
+      label: Environment
+      description: OS, toolchain versions, target board, and other relevant context.
+  - type: textarea
+    id: evidence
+    attributes:
+      label: Evidence
+      description: Logs, screenshots, failing checks, or links to run output.

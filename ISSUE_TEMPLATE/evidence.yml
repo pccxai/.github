@@ -1,0 +1,39 @@
+name: Evidence
+description: Submit or request evidence for repository claims, release gates, or review decisions.
+title: "[evidence] "
+labels: ["type:docs", "area:verification", "status:triage"]
+body:
+  - type: input
+    id: repository
+    attributes:
+      label: Repository
+      description: Repository where the claim, gate, or review decision lives.
+      placeholder: "pccxai/repo-name"
+    validations:
+      required: true
+  - type: textarea
+    id: subject
+    attributes:
+      label: Subject
+      description: Claim, release gate, or review decision that needs evidence.
+    validations:
+      required: true
+  - type: textarea
+    id: evidence
+    attributes:
+      label: Evidence state
+      description: Link the logs, reports, commits, checks, or board records. Say "missing" if evidence is not available yet.
+    validations:
+      required: true
+  - type: textarea
+    id: limits
+    attributes:
+      label: Limits
+      description: Known gaps, blocked inputs, unsupported scope, or follow-up work.
+    validations:
+      required: true
+  - type: textarea
+    id: reviewer_notes
+    attributes:
+      label: Reviewer notes
+      description: Optional notes for maintainers.
