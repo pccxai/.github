@@ -1,0 +1,44 @@
+name: Feature
+description: Propose a scoped capability or repository change.
+title: "[feature] "
+labels: ["type:feature", "status:triage"]
+body:
+  - type: input
+    id: repository
+    attributes:
+      label: Repository
+      description: Target repository or repositories.
+      placeholder: "pccxai/repo-name"
+    validations:
+      required: true
+  - type: textarea
+    id: problem
+    attributes:
+      label: Problem
+      description: What concrete problem does this solve?
+    validations:
+      required: true
+  - type: textarea
+    id: proposal
+    attributes:
+      label: Proposal
+      description: Describe the smallest useful change.
+    validations:
+      required: true
+  - type: textarea
+    id: boundary
+    attributes:
+      label: Boundary
+      description: What is in scope, and what is explicitly out of scope?
+    validations:
+      required: true
+  - type: textarea
+    id: evidence
+    attributes:
+      label: Evidence or references
+      description: Related issues, design notes, traces, logs, or prior work.
+  - type: textarea
+    id: acceptance
+    attributes:
+      label: Acceptance checks
+      description: How should maintainers verify this is done?
