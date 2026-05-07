@@ -32,6 +32,9 @@ pccx-FPGA-NPU-LLM-kv260.
 ## Roadmap and tracking
 
 Execution is tracked on the [PCCX Roadmap project](https://github.com/orgs/pccxai/projects/1).
+The dashboard tracks title, assignees, labels, repository, milestone, linked pull
+requests, reviewers, parent issue, sub-issue progress, status, area, priority,
+target release, and work type.
 The short release-track summary lives at [pccx/docs/roadmap](https://pccxai.github.io/pccx/en/docs/roadmap.html).
 
 ## Contributing
