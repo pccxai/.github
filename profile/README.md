@@ -74,7 +74,7 @@ policy at
 Execution is tracked on the
 [PCCX Roadmap project](https://github.com/orgs/pccxai/projects/1).
 The short release-track summary lives at
-[pccx/docs/roadmap](https://pccxai.github.io/pccx/en/docs/roadmap.html).
+[pccx/docs/roadmap](https://pccx.pages.dev/en/docs/roadmap.html).
 
 ## Contributing
 
