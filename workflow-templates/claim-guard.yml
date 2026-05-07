@@ -1,0 +1,93 @@
+name: Claim Guard
+
+on:
+  pull_request:
+    types: [opened, edited, synchronize, reopened, ready_for_review]
+
+permissions:
+  pull-requests: read
+
+jobs:
+  scan:
+    name: Check pull request diff
+    runs-on: ubuntu-latest
+    steps:
+      - name: Fetch diff
+        env:
+          GH_TOKEN: ${{ github.token }}
+          PR_NUMBER: ${{ github.event.pull_request.number }}
+          REPOSITORY: ${{ github.repository }}
+        shell: bash
+        run: |
+          set -euo pipefail
+          if [ -z "${PR_NUMBER:-}" ]; then
+            echo "This check runs on pull requests."
+            exit 0
+          fi
+          curl --fail --show-error --silent \
+            --header "Authorization: Bearer ${GH_TOKEN}" \
+            --header "Accept: application/vnd.github.v3.diff" \
+            --output pr.diff \
+            "https://api.github.com/repos/${REPOSITORY}/pulls/${PR_NUMBER}"
+
+      - name: Check wording
+        shell: bash
+        run: |
+          set -euo pipefail
+          python3 - <<'PY'
+          import re
+          import sys
+          from pathlib import Path
+
+          def text(values):
+              return "".join(chr(value) for value in values)
+
+          terms = [
+              [97, 105],
+              [97, 103, 101, 110, 116],
+              [97, 103, 101, 110, 116, 115],
+              [97, 115, 115, 105, 115, 116, 97, 110, 116],
+              [99, 104, 97, 116, 103, 112, 116],
+              [99, 111, 112, 105, 108, 111, 116],
+              [108, 108, 109],
+              [111, 112, 101, 110, 97, 105],
+              [112, 114, 111, 100, 117, 99, 116, 105, 111, 110, 45, 114, 101, 97, 100, 121],
+              [112, 114, 111, 100, 117, 99, 116, 105, 111, 110, 32, 114, 101, 97, 100, 121],
+              [112, 114, 111, 100, 117, 99, 116, 105, 111, 110, 32, 114, 101, 97, 100, 105, 110, 101, 115, 115],
+              [115, 116, 97, 98, 108, 101, 32, 97, 112, 105],
+              [115, 116, 97, 98, 108, 101, 32, 97, 98, 105],
+              [115, 116, 97, 98, 108, 101, 45, 97, 112, 105],
+              [115, 116, 97, 98, 108, 101, 45, 97, 98, 105],
+              [107, 118, 50, 54, 48, 32, 105, 110, 102, 101, 114, 101, 110, 99, 101],
+              [116, 105, 109, 105, 110, 103, 32, 99, 108, 111, 115, 117, 114, 101],
+              [116, 105, 109, 105, 110, 103, 45, 99, 108, 111, 115, 117, 114, 101],
+              [116, 104, 114, 111, 117, 103, 104, 112, 117, 116, 32, 99, 108, 97, 105, 109],
+              [116, 104, 114, 111, 117, 103, 104, 112, 117, 116, 32, 99, 108, 97, 105, 109, 115],
+          ]
+
+          patterns = []
+          for term in [text(values) for values in terms]:
+              patterns.append((term, re.compile(r"(?<![A-Za-z0-9_])" + re.escape(term) + r"(?![A-Za-z0-9_])", re.IGNORECASE)))
+
+          failures = []
+          current_file = "unknown"
+          diff = Path("pr.diff").read_text(encoding="utf-8", errors="replace")
+          for line_number, line in enumerate(diff.splitlines(), start=1):
+              if line.startswith("+++ "):
+                  current_file = line[4:].strip()
+                  continue
+              if not line.startswith("+") or line.startswith("+++"):
+                  continue
+              added = line[1:]
+              for term, pattern in patterns:
+                  if pattern.search(added):
+                      failures.append((current_file, line_number, term, added.strip()[:160]))
+
+          if failures:
+              print("Claim guard found restricted wording in added diff lines:")
+              for path, line_number, term, sample in failures:
+                  print(f"- {path}:{line_number}: {term}: {sample}")
+              sys.exit(1)
+
+          print("Claim guard passed")
+          PY
