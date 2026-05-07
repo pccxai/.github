@@ -34,6 +34,23 @@ pccx-FPGA-NPU-LLM-kv260.
 Execution is tracked on the [PCCX Roadmap project](https://github.com/orgs/pccxai/projects/1).
 The short release-track summary lives at [pccx/docs/roadmap](https://pccxai.github.io/pccx/en/docs/roadmap.html).
 
+## Reusable CI Workflows
+
+Workflow templates prepared in [pccxai/.github#10](https://github.com/pccxai/.github/pull/10):
+
+- [claim-guard](../workflow-templates/claim-guard.yml): checks pull request diffs for restricted release and source wording.
+- [xsim-regression](../workflow-templates/xsim-regression.yml): runs `hw/sim/run_verification.sh --full` when a repository provides it.
+- [evidence-gate](../workflow-templates/evidence-gate.yml): requires an `Evidence state:` line in the pull request body.
+
+## Today's activity
+
+Merged lane activity is summarized by range, 50 PRs total:
+
+- [pccx-lab#124](https://github.com/pccxai/pccx-lab/pull/124)-[#159](https://github.com/pccxai/pccx-lab/pull/159): extended JSON-boundary coverage across MCP client and plugin host fixtures.
+- [systemverilog-ide#116](https://github.com/pccxai/systemverilog-ide/pull/116)-[#123](https://github.com/pccxai/systemverilog-ide/pull/123): added module health, summary, view, graph, and refactor CLI coverage.
+- [pccx#41](https://github.com/pccxai/pccx/pull/41)-[#46](https://github.com/pccxai/pccx/pull/46): refreshed public docs for v003, vision-v001, typography, and home-page visibility.
+- [pccxai/.github#9](https://github.com/pccxai/.github/pull/9) and [#10](https://github.com/pccxai/.github/pull/10): keep org profile, community templates, and reusable workflow templates under review.
+
 ## Contributing
 
 Focused issues, documentation improvements, reproducible benchmarks, and small experiments are welcome.
