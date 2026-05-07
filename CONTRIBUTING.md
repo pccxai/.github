@@ -21,6 +21,7 @@ These guidelines apply to all PCCX AI repositories unless a repository ships its
 - Describe motivation, approach, and any verification steps in the PR body.
 - Link the related issue or discussion.
 - Ensure CI is green before requesting review.
+- Releases follow the maintainer-owned [release process](RELEASE_PROCESS.md).
 
 ## Code style
 
