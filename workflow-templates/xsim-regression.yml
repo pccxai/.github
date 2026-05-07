@@ -1,0 +1,27 @@
+name: XSIM Regression
+
+on:
+  pull_request:
+    types: [opened, synchronize, reopened, ready_for_review]
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  xsim:
+    name: Run XSIM regression
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v6
+
+      - name: Run verification
+        shell: bash
+        run: |
+          set -euo pipefail
+          if [ -f hw/sim/run_verification.sh ]; then
+            bash hw/sim/run_verification.sh --full
+          else
+            echo "hw/sim/run_verification.sh not present; skipping"
+          fi

@@ -1,0 +1,6 @@
+{
+  "name": "XSIM Regression",
+  "description": "Runs hw/sim/run_verification.sh --full when the repository provides it.",
+  "creator": "pccxai",
+  "categories": null
+}
