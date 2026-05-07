@@ -8,7 +8,7 @@ body:
     attributes:
       label: Page or file
       description: Documentation URL or repository path.
-      placeholder: "https://pccxai.github.io/pccx/... or path/to/file.md"
+      placeholder: "https://pccx.pages.dev/... or path/to/file.md"
     validations:
       required: true
   - type: textarea
