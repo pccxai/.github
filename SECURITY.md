@@ -4,7 +4,7 @@
 
 Please do not file a public issue for security findings.
 
-Email contact@pccx.ai with:
+Email security@pccx.ai with:
 
 - A description of the issue and the affected repository.
 - Steps to reproduce, or a minimal proof of concept.
