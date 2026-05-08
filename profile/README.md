@@ -18,6 +18,13 @@ Versioned v002 IP-core package — board- and model-agnostic reusable
 RTL for LLM and shared subsystems. Consumed by board integration
 repositories at a pinned SHA.
 
+### [pccx-v003](https://github.com/pccxai/pccx-v003)
+
+Canonical v003 IP-core planning package — same shape as `pccx-v002`
+(LLM, Vision, Voice, common). Planning / evidence-gated; no v003 RTL
+or contract is released yet. New reusable v003 LLM material belongs
+under `pccx-v003/LLM/`.
+
 ### [pccx-FPGA-NPU-LLM-kv260](https://github.com/pccxai/pccx-FPGA-NPU-LLM-kv260)
 
 KV260 + LLM application integration. Consumes `pccx-v002` through
@@ -43,12 +50,6 @@ User-facing local LLM launcher targeting KV260-class edge devices.
 Currently a planning scaffold; real launch flow depends on FPGA
 bring-up evidence from `pccx-FPGA-NPU-LLM-kv260`.
 
-### [pccx-LLM-v003](https://github.com/pccxai/pccx-LLM-v003)
-
-Placeholder LLM-only track for the v003 architecture line. Default
-direction: fold into a future `pccx-v003/LLM/` once the v003
-contract is stable.
-
 ### [pccx-vision-v001](https://github.com/pccxai/pccx-vision-v001)
 
 Standalone vision track on the KV260 + v002 substrate. Default
@@ -58,6 +59,12 @@ review.
 ### [pccxai](https://github.com/pccxai/pccxai)
 
 Organization placeholder and site assets.
+
+## Historical / retired
+
+`pccx-LLM-v003` was an early temporary feeder for v003 LLM planning.
+It is superseded by `pccx-v003` and is no longer an active public
+track.
 
 ## Trademark
 
