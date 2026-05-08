@@ -1,0 +1,30 @@
+# FUNDING.yml is intentionally not enabled yet for the pccxai org.
+#
+# No GitHub Sponsors handle or external sponsorship URL has been
+# verified at this time. Do not add a sponsor entry here unless the
+# corresponding account / URL is verified, owned by the project, and
+# served over HTTPS.
+#
+# Sponsorship of the PCCX project is acknowledgement-only and is not
+# investment. See the canonical sponsorship policy in
+# https://github.com/pccxai/pccx/blob/main/docs/commercial/sponsorship-policy.md
+# for details: no equity, no debt, no revenue share, no profit share,
+# no royalties, no securities, no voting rights, no IP ownership, no
+# guaranteed return.
+#
+# All keys below are commented out. GitHub treats this as no funding
+# entries configured.
+#
+# github: []
+# patreon:
+# open_collective:
+# ko_fi:
+# tidelift:
+# community_bridge:
+# liberapay:
+# issuehunt:
+# lfx_crowdfunding:
+# polar:
+# buy_me_a_coffee:
+# thanks_dev:
+# custom: []
