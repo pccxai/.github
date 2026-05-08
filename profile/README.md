@@ -1,4 +1,12 @@
-# PCCX AI
+# PCCX
+
+PCCX is an open hardware/software ecosystem for AI accelerator research, FPGA bring-up, verification tooling, and developer workflows.
+
+Website: https://pccx.ai  
+Contact: contact@pccx.ai  
+Security: security@pccx.ai
+
+PCCX™ is a pending trademark.
 
 Open hardware / software research for NPU architecture, FPGA
 acceleration, and verification tooling. The project ships a
