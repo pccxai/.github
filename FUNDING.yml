@@ -1,0 +1,25 @@
+# GitHub Sponsors funding configuration placeholder.
+#
+# This file is intentionally comment-only. It documents how to enable funding
+# links without activating any provider or custom URL for this organization.
+#
+# To enable funding links later:
+# 1. Confirm the approved funding provider account or URL with project owners.
+# 2. Uncomment only the matching provider entry below.
+# 3. Replace the example placeholder value with the approved account name,
+#    project slug, package platform/name, or URL.
+# 4. Open a pull request for review before merging.
+#
+# Examples of supported GitHub funding keys:
+#
+# github: [approved-github-sponsors-account]
+# patreon: approved-patreon-account
+# open_collective: approved-open-collective-slug
+# ko_fi: approved-ko-fi-account
+# tidelift: approved-platform-name/package-name
+# community_bridge: approved-community-bridge-project
+# liberapay: approved-liberapay-account
+# issuehunt: approved-issuehunt-account
+# otechie: approved-otechie-account
+# lfx_crowdfunding: approved-lfx-crowdfunding-project
+# custom: [approved-funding-url]
