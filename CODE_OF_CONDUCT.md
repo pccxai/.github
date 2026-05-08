@@ -8,7 +8,7 @@ This applies to all project spaces -- issues, pull requests, discussions, and an
 
 ## Enforcement
 
-Reports may be sent to k1h6w4@gmail.com. Reports are reviewed with discretion. Maintainers may remove or reject content that violates this Code, and may temporarily or permanently ban contributors as needed.
+Reports may be sent to contact@pccx.ai Reports are reviewed with discretion. Maintainers may remove or reject content that violates this Code, and may temporarily or permanently ban contributors as needed.
 
 ## Attribution
 
