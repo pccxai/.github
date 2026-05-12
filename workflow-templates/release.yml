@@ -1,0 +1,152 @@
+name: Release
+
+on:
+  workflow_dispatch:
+    inputs:
+      tag:
+        description: Release tag to publish, for example v1.2.3.
+        required: true
+        type: string
+      title:
+        description: Optional release title. Defaults to the tag.
+        required: false
+        type: string
+      changelog_path:
+        description: Path to the changelog file used for release notes.
+        required: false
+        default: CHANGELOG.md
+        type: string
+      artifact_glob:
+        description: Newline-separated artifact globs to attach to the release.
+        required: false
+        default: |
+          dist/**
+        type: string
+      draft:
+        description: Create the release as a draft.
+        required: false
+        default: false
+        type: boolean
+      prerelease:
+        description: Mark the release as a prerelease.
+        required: false
+        default: false
+        type: boolean
+
+permissions:
+  contents: write
+
+jobs:
+  publish:
+    name: Publish release
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Generate release notes from changelog
+        id: notes
+        env:
+          CHANGELOG_PATH: ${{ inputs.changelog_path }}
+          RELEASE_TAG: ${{ inputs.tag }}
+        run: |
+          set -euo pipefail
+
+          python3 - <<'PY'
+          import os
+          import pathlib
+          import re
+
+          changelog_path = pathlib.Path(os.environ["CHANGELOG_PATH"])
+          release_tag = os.environ["RELEASE_TAG"]
+          notes_path = pathlib.Path("release-notes.md")
+
+          if not changelog_path.is_file():
+              notes_path.write_text(
+                  f"Release notes for {release_tag}\n\n"
+                  f"No {changelog_path} file was found.\n",
+                  encoding="utf-8",
+              )
+              raise SystemExit(0)
+
+          heading = re.compile(r"^(#{1,6})\s+")
+          tag = re.compile(
+              rf"(^|[^A-Za-z0-9._-]){re.escape(release_tag)}([^A-Za-z0-9._-]|$)"
+          )
+
+          lines = changelog_path.read_text(encoding="utf-8").splitlines()
+          section = []
+          section_level = None
+
+          for line in lines:
+              match = heading.match(line)
+              if match and section:
+                  current_level = len(match.group(1))
+                  if current_level <= section_level:
+                      break
+
+              if match and tag.search(line):
+                  section_level = len(match.group(1))
+                  section.append(line)
+                  continue
+
+              if section:
+                  section.append(line)
+
+          if section:
+              notes_path.write_text("\n".join(section).strip() + "\n", encoding="utf-8")
+          else:
+              notes_path.write_text(
+                  f"Release notes for {release_tag}\n\n"
+                  f"No matching {changelog_path} section was found for {release_tag}.\n",
+                  encoding="utf-8",
+              )
+          PY
+
+      - name: Stage release artifacts
+        env:
+          ARTIFACT_GLOB: ${{ inputs.artifact_glob }}
+        run: |
+          set -euo pipefail
+
+          python3 - <<'PY'
+          import glob
+          import os
+          import pathlib
+          import shutil
+
+          output_dir = pathlib.Path("release-artifacts")
+          output_dir.mkdir(exist_ok=True)
+
+          for pattern in os.environ["ARTIFACT_GLOB"].splitlines():
+              pattern = pattern.strip()
+              if not pattern:
+                  continue
+
+              for match in glob.glob(pattern, recursive=True):
+                  source = pathlib.Path(match)
+                  if not source.is_file() or output_dir in source.parents:
+                      continue
+
+                  target = output_dir / source.name
+                  index = 2
+                  while target.exists():
+                      target = output_dir / f"{source.stem}-{index}{source.suffix}"
+                      index += 1
+
+                  shutil.copy2(source, target)
+          PY
+
+      - name: Create GitHub Release
+        uses: softprops/action-gh-release@v2
+        with:
+          tag_name: ${{ inputs.tag }}
+          name: ${{ inputs.title || inputs.tag }}
+          body_path: release-notes.md
+          draft: ${{ inputs.draft }}
+          prerelease: ${{ inputs.prerelease }}
+          files: release-artifacts/*
+          fail_on_unmatched_files: false
