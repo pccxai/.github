@@ -52,7 +52,7 @@ SystemVerilog IDE layer spun out from pccx-lab. Targets diagnostics,
 xsim log integration, and reviewed SystemVerilog development
 workflows.
 
-### [pccx-llm-launcher](https://github.com/pccxai/pccx-llm-launcher)
+### [pccx-launcher](https://github.com/pccxai/pccx-launcher)
 
 User-facing local LLM launcher targeting KV260-class edge devices.
 Currently a planning scaffold; real launch flow depends on FPGA
