@@ -1,0 +1,69 @@
+name: First-time contributor
+description: New to PCCX AI? Ask for help finding or scoping a first contribution.
+title: "[first-time contributor] "
+labels: ["help wanted"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Welcome. Use this form if you are new to the organisation and want help choosing or scoping a first contribution.
+
+        If you have already found a defect, documentation problem, or concrete feature proposal, use the matching issue template instead.
+  - type: input
+    id: repository
+    attributes:
+      label: Repository or area
+      description: Which repository, component, or topic are you interested in?
+      placeholder: "pccx, documentation, examples, CI, ..."
+    validations:
+      required: true
+  - type: dropdown
+    id: contribution
+    attributes:
+      label: Preferred contribution type
+      description: Pick the kind of first task you would like to start with.
+      options:
+        - Documentation
+        - Tests or examples
+        - Small bug fix
+        - Tooling or CI
+        - Not sure yet
+    validations:
+      required: true
+  - type: textarea
+    id: context
+    attributes:
+      label: Background
+      description: Share relevant experience, tools, languages, hardware, or learning goals that would help maintainers suggest a good task.
+      placeholder: |
+        - I am comfortable with ...
+        - I would like to learn ...
+        - I have access to ...
+    validations:
+      required: true
+  - type: textarea
+    id: considered
+    attributes:
+      label: Issues or files already reviewed
+      description: Link any `good first issue`, file, discussion, or pull request you looked at before opening this request.
+      placeholder: |
+        - https://github.com/pccxai/.../issues/...
+        - path/to/file.md
+    validations:
+      required: true
+  - type: textarea
+    id: constraints
+    attributes:
+      label: Constraints
+      description: Optional. Mention time zone, availability, hardware limits, or anything else that affects task selection.
+  - type: checkboxes
+    id: checklist
+    attributes:
+      label: Checklist
+      options:
+        - label: I have read the organisation contributing guide.
+          required: true
+        - label: I searched existing issues and pull requests before opening this request.
+          required: true
+        - label: I understand maintainers may redirect me to an existing issue or Discussion.
+          required: true
