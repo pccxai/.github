@@ -1,0 +1,72 @@
+name: Evidence
+description: Submit or request evidence for repository claims, release gates, or review decisions.
+title: "[evidence] "
+labels: ["type:docs", "area:verification", "status:triage"]
+body:
+  - type: input
+    id: repository
+    attributes:
+      label: Repository
+      description: Repository where the claim, gate, or review decision lives.
+      placeholder: "pccxai/repo-name"
+    validations:
+      required: true
+  - type: textarea
+    id: subject
+    attributes:
+      label: Subject
+      description: Claim, release gate, or review decision that needs evidence.
+    validations:
+      required: true
+  - type: textarea
+    id: timing_state
+    attributes:
+      label: Timing state
+      description: Timing status, target clock, WNS/TNS, failing paths, report link, or "not run".
+      placeholder: |
+        Target clock:
+        WNS/TNS:
+        Report path or link:
+        Status:
+    validations:
+      required: true
+  - type: textarea
+    id: synthesis_state
+    attributes:
+      label: Synthesis and implementation state
+      description: Tool/version, commit, utilization, DSP/BRAM/LUT/FF counts, implementation status, report link, or "not run".
+      placeholder: |
+        Tool/version:
+        Commit:
+        Utilization:
+        Report path or link:
+        Status:
+    validations:
+      required: true
+  - type: textarea
+    id: board_state
+    attributes:
+      label: Board state
+      description: Target board, bitstream, host command, driver/app version, serial log, screenshot, output link, or "not run".
+      placeholder: |
+        Board:
+        Bitstream:
+        Host command:
+        Output path or link:
+        Status:
+    validations:
+      required: true
+  - type: textarea
+    id: evidence_links
+    attributes:
+      label: Evidence links
+      description: Logs, reports, checks, screenshots, commits, or board records. Say "missing" for each unavailable item.
+    validations:
+      required: true
+  - type: textarea
+    id: limits
+    attributes:
+      label: Limits
+      description: Known gaps, blocked inputs, unsupported scope, stale reports, or follow-up work.
+    validations:
+      required: true
