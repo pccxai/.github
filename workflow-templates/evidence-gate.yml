@@ -1,0 +1,33 @@
+name: Evidence Gate
+
+on:
+  pull_request:
+    types: [opened, edited, synchronize, reopened, ready_for_review]
+
+permissions:
+  pull-requests: read
+
+jobs:
+  evidence:
+    name: Check pull request body
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check evidence state
+        env:
+          PR_BODY: ${{ github.event.pull_request.body }}
+        shell: bash
+        run: |
+          set -euo pipefail
+          python3 - <<'PY'
+          import os
+          import re
+          import sys
+
+          body = os.environ.get("PR_BODY") or ""
+          if re.search(r"(?im)^\s*evidence state:\s*\S", body):
+              print("Evidence state line found")
+              sys.exit(0)
+
+          print("PR body must include an evidence state: line")
+          sys.exit(1)
+          PY

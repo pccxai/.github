@@ -1,0 +1,6 @@
+{
+  "name": "Evidence Gate",
+  "description": "Requires an evidence state line in the pull request body.",
+  "creator": "pccxai",
+  "categories": null
+}

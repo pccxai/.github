@@ -1,0 +1,6 @@
+{
+  "name": "Claim Guard",
+  "description": "Checks pull request diffs for restricted release and source wording.",
+  "creator": "pccxai",
+  "categories": null
+}
