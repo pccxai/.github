@@ -40,3 +40,20 @@ Do not make production-ready, stable API/ABI, KV260 inference, timing-closure, o
 ## Reporting security issues
 
 Do not file a public issue for security findings. See [SECURITY.md](SECURITY.md).
+
+## Operator, rights and first checks
+
+PCCX is initiated and operated by Altifigence. Repository maintainers review
+technical work; Altifigence is responsible for current operations, budgets and
+contracts. See [Transparency](https://pccx.ai/en/legal/transparency/).
+
+Use the [start guide](https://github.com/pccxai/pccx/blob/main/START_HERE.md)
+and the repository's own checks. Buying or using Altifigence tools is optional.
+The proposed developer support program is not yet open for applications.
+
+Contribute only material you have the right to submit. Preserve author, source
+and license notices. Copyright is not automatically assigned to Altifigence.
+Existing file/repository licenses control; the Apache-2.0 code license does not
+cover every document or mark. For new prose or artwork without an existing
+contribution license, resolve publication permissions in the PR before merge.
+No draft CLA, DCO or future policy becomes binding merely by being linked here.
